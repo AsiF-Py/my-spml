@@ -1,0 +1,307 @@
+
+<!doctype html>
+{% load static %}
+
+<html lang="en">
+	<head>
+		{% block head_title %}
+		<title> </title>
+		{% endblock %}
+		
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+		
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- Font Awesome -->
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+	rel="stylesheet"
+/>
+<!-- Google Fonts -->
+<link
+	href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+	rel="stylesheet"
+/>
+<!-- MDB -->
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css"
+	rel="stylesheet"
+/>
+<!-- MDB -->
+<script
+	type="text/javascript"
+	src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"
+></script>
+
+		<link rel="stylesheet" href="{% static 'css/style.css' %}">
+		<link rel="stylesheet" href="{% static 'css/style1.css' %}">
+<link rel="stylesheet" href="{% static 'css/animate1.css.css' %}">
+<link rel="stylesheet" href="{% static 'css/animate.css.css' %}">
+
+	</head>
+	<style>
+.navbar{
+	position: fixed;
+	color: white;
+
+}
+.collapse{
+}
+
+	</style>
+	<body>
+
+{% block loginbar %}
+<!-- <section class="ftco-section"> -->
+		<nav class="navbar fixed-top navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light" id="ftco-navbar">
+			<div class="container">
+				<a class="navbar-brand" href="#">
+					<img src="{% static 'images/spml1.png' %}" alt="logo" width="90px">
+				</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="fa fa-bars"></span> Menu
+				</button>
+				<div class="collapse navbar-collapse" id="ftco-nav">
+					<ul class="navbar-nav m-auto">
+						<li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Product Industry</a>
+							<div class="dropdown-menu" aria-labelledby="dropdown04">
+								<a class="dropdown-item" href="/clinical/">Clinical</a>
+								<a class="dropdown-item" href="/cosmetic/">Cosmetic</a>
+								<a class="dropdown-item" href="/dairy/">Dairy</a>
+								<a class="dropdown-item" href="/food/">Food & Beverage</a>
+								<a class="dropdown-item" href="/veterinary/">Veterinary</a>
+								<a class="dropdown-item" href="/Water_Wastewater/">Water & Wastewater</a>
+							</div>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Our Products</a>
+							<div class="dropdown-menu" aria-labelledby="dropdown04">
+								<a class="dropdown-item" href="/agar_plates/">Agar Plates</a>
+								<a class="dropdown-item" href="/bi_agar_plates_90mm/">Bi Agar Plates 90mm</a>
+								<a class="dropdown-item" href="/agar_plates_150mm/">Agar Plates 150mm</a>
+								<a class="dropdown-item" href="/tubed_media/">Tubed Media</a>
+								<a class="dropdown-item" href="/bottled_media/">Bottled Media</a>
+								<a class="dropdown-item" href="/blood_products/">Blood Products</a>
+								<a class="dropdown-item" href="/antibiotic_discs/">Antibiotic Discs</a>
+								<a class="dropdown-item" href="/aTCC-Microbiologic/">ATCC-Microbiologic</a>
+								<a class="dropdown-item" href="/petroleum/">Petroleum</a>
+							</div>
+						</li>
+						<li class="nav-item"><a href="/certificates/" class="nav-link">QC Certificates</a></li>
+						<li class="nav-item"><a href="/contact/" class="nav-link">Contact</a></l>
+						<li class="nav-item"><a href="/about/" class="nav-link">About</a></li>
+						 {% if user.is_authenticated %}
+						 <li class="nav-item"><a href="#" class="nav-link">Hi, {{user.username}}</a></li>
+						 <li class="nav-item"><a href="/accounts/logout/" class="nav-link">Logout</a></li>
+						 {% else %}
+						<li class="nav-item"><a href="/accounts/login/" class="nav-link">Login</a></li>
+						<li class="nav-item"><a href="/signup/" class="nav-link">Sign Up</a></li>
+						{% endif %}
+
+					</ul>
+
+				</div>
+			</div>
+		</nav>
+		<!-- END nav -->
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+		
+{% endblock loginbar %}
+{% block sidebarnot %}
+		
+
+	</section>
+		<div class="container d-md-flex align-items-stretch">
+			<!-- Page Content  -->
+			
+
+
+
+
+
+			<nav id="sidebar">
+				<div class="p-4 pt-5">
+				 
+
+
+					<h5>Search</h5>
+ <form class="form-inline" method="get" action="/search/">         
+<div class="input-group">
+	<input id="search-input" type="search" required id="query" name="query" class="form-control" placeholder="Product Name or Code...">  
+		<button id="search-button" type="submit" class="btn btn-primary">
+		<i class="fa fa-search"></i>
+		</button>
+
+</div>
+				 </form> 
+				
+				 <br>
+
+					<h5>Categories</h5>
+					<ul class="list-unstyled components mb-5">
+						<li>
+							<a href="#pageSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Products Industry</a>
+							<ul class="collapse list-unstyled" id="pageSubmenu1">
+								<li><a href="/clinical/"><span class="fa fa-chevron-right mr-2"></span> Clinical</a></li>
+								<li><a href="/cosmetic/"><span class="fa fa-chevron-right mr-2"></span> Cosmetic</a></li>
+								<li><a href="/dairy/"><span class="fa fa-chevron-right mr-2"></span> Dairy</a></li>
+								<li><a href="/food/"><span class="fa fa-chevron-right mr-2"></span> Food & Beverage</a></li>
+								<li><a href="/veterinary/"><span class="fa fa-chevron-right mr-2"></span> Veterinary</a></li>
+								<li><a href="/Water_Wastewater/"><span class="fa fa-chevron-right mr-2"></span> Water & Wastewater</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Our Product</a>
+							<ul class="collapse list-unstyled" id="pageSubmenu2">
+								<li><a href="/agar_plates/"><span class="fa fa-chevron-right mr-2"></span> Agar Plates</a></li>
+								<li><a href="/bi_agar_plates_90mm/"><span class="fa fa-chevron-right mr-2"></span> Bi Agar Plates 90mm</a></li>
+								<li><a href="/agar_plates_150mm/"><span class="fa fa-chevron-right mr-2"></span> Agar Plates 150mm</a></li>
+								<li><a href="/tubed_media/"><span class="fa fa-chevron-right mr-2"></span> Tubed Media</a></li>
+								<li><a href="/bottled_media/"><span class="fa fa-chevron-right mr-2"></span> Bottled Media</a></li>
+								<li><a href="/blood_products/"><span class="fa fa-chevron-right mr-2"></span> Blood Products</a></li>
+								<li><a href="/antibiotic_discs/"><span class="fa fa-chevron-right mr-2"></span> Antibiotic Discs</a></li>
+								<li><a href="/aTCC-Microbiologic/"><span class="fa fa-chevron-right mr-2"></span> ATCC-Microbiologic</a></li>
+								<li><a href="/petroleum/"><span class="fa fa-chevron-right mr-2"></span> Petroleum</a></li>
+							</ul>
+						</li>
+					 
+					</ul>
+
+					<div class="mb-5">
+						<h5>Catalog Download</h5>
+					<br>
+					<a target="_blank" href="{% static 'catalog.pdf' %}" title="">
+					<img src="{% static 'images/imagess.png' %}" alt="logo" width="100px">
+					</a>
+					
+
+					</div>
+				</div>
+			</nav>
+			<div id="content" class="p-4 p-md-5 pt-5">
+				{% block content %}
+						
+				{% endblock content %}
+			 
+			</div>
+		</div>
+		<br>
+		<br>
+		<!-- Footer -->
+		{% endblock sidebarnot %}
+		<br>
+		<br>
+
+	
+
+<footer class="page-footer font-small indigo" style="background-color: #060050; color: white;">
+
+
+
+  <!-- Footer Links -->
+  <div class="container text-center text-md-left">
+
+    <!-- Grid row -->
+    <div class="row">
+
+
+
+      <hr class="clearfix w-100 d-md-none">
+
+      <!-- Grid column -->
+      <div class="col-md-3 mx-auto">
+
+        <!-- Links -->
+        <h5 style="color: white;" class="font-weight-bold text-uppercase mt-3 mb-4">Contact Us</h5>
+
+					<p><i class="fas fa-home me-3"></i> P.O.Box 2751, Riyadh 11461, Saudi Arabia</p>
+					<p>
+						<i class="fas fa-envelope me-3"></i>
+						info@spml.com.sa
+					</p>
+					<p><i class="fas fa-phone me-3"></i> +966 11 476 7931 , 4773697 , 4773752 </p>
+					<p><i class="fas fa-print me-3"></i> + 011 477 8313</p>
+
+
+      </div>
+      <!-- Grid column -->
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none">
+
+      <!-- Grid column -->
+      <div class="col-md-3 mx-auto">
+
+        <h5 style="color: white;" class="font-weight-bold text-uppercase mt-3 mb-4">Contact Us</h5>
+
+					<p><i class="fas fa-home me-3"></i> Abdulaziz Al Khurayji Street, Al Zahra District, Building no: 96, Jeddah, Saudi Arabia</p>
+					<p>
+						<i class="fas fa-envelope me-3"></i>
+						info@spml.com.sa
+					</p>
+					<p><i class="fas fa-phone me-3"></i> 00966122751747 </p>
+					<p><i class="fas fa-print me-3"></i> 00966126900963</p>
+
+</div>
+<hr class="clearfix w-100 d-md-none">
+
+      <!-- Grid column -->
+      <div class="col-md-3 mx-auto">
+
+        <!-- Links -->
+        <h5 style="color: white;" class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+
+
+        <!-- Facebook -->
+        <a type="button" class="btn-floating btn-fb">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <!-- Twitter -->
+        <a type="button" class="btn-floating btn-tw">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <!-- Google +-->
+        <a type="button" class="btn-floating btn-gplus">
+          <i class="fab fa-google-plus-g"></i>
+        </a>
+        <!-- Dribbble -->
+        <a type="button" class="btn-floating btn-dribbble">
+          <i class="fab fa-dribbble"></i>
+        </a>
+
+      </div>
+    </div>
+    <!-- Grid row -->
+
+  </div>
+  <!-- Footer Links -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3"  style="color: white;">© 2020 Copyright:
+    <a href="#" style="color: white;"><b>Mannan Asif</b></a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+<!-- Footer -->
+		<script src="{% static 'js/jquery.min.js' %}"></script>
+		<script src="{% static 'js/popper.js' %}"></script>
+		<script src="{% static 'js/bootstrap.min.js' %}"></script>
+		<script src="{% static 'js/main.js' %}"></script>
+	</body>
+</html>

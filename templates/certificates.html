@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block head_title %}<title>Spml | QC Certificates</title>{% endblock %}
+{% block sidebarnot %}
+
+	<div class="col-md-6 offset-md-3">
+	<form class="form-inline" method="get" action="/certificates/">
+	<label class="sr-only" for="query">Name</label>
+	<input type="number" required id="query" name="query" class="form-control mb-2 mr-sm-2" placeholder="Batch">
+
+	<button type="submit" class="btn btn-primary mb-2">Find</button>
+</form>
+</div>
+
+<br><br>
+
+	{% if search %}
+<div class="container">
+<table class="table table-bordered">
+
+	<thead>
+		<tr>
+			<th scope="col">Products Name</th>
+			<th scope="col">Products Code</th>
+			<th scope="col">Batch</th>
+			<th scope="col">Expiry Date</th>
+			<th scope="col">Download</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<tr>
+			{% for certificate in queryset %}
+
+			<td scope="row">{{certificate.Products_Name.Products_Name}}</td>
+			<td scope="row">{{certificate.Products_Name.Code}}</td>
+			<th>{{certificate.Batch}}</th>	
+			<td>{{certificate.Expiry_date}}</td>
+			<td><a target="_blank" href="{{certificate.Products_Attachment.url}}">PDF</a></td>
+
+		</tr>
+	</tbody>
+{% endfor %}
+
+</table>
+</div>
+
+{% endif %}
+{% endblock sidebarnot %}
