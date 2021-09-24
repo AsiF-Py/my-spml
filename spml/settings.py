@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-qaq86!35aoxtbq%q(45!il_e!(4(&c7l8-uj6^!)nhwi8*e6_x
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['spml-env.eba-dye7f3a9.us-west-2.elasticbeanstalk.com']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -82,10 +82,14 @@ WSGI_APPLICATION = 'spml.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-	'default': {
-		'ENGINE': 'django.db.backends.sqlite3',
-		'NAME': BASE_DIR / 'db.sqlite3',
-	}
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'myspml',
+        'USER': 'spmladmin',
+        'PASSWORD': 'py08thon925',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
+    }
 }
 
 

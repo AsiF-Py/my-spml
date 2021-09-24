@@ -49,7 +49,7 @@ def signup_view(request):
 
 def search(request):
 	name = request.GET.get('query')
-	pro = product.objects.filter(Q(Products_Name__contains=name)|Q(Code__contains=name))
+	pro = product.objects.filter(Q(Products_Name__icontains=name)|Q(Code__contains=name))
 	return render(request,'search.html',{'pro':pro,'name':name})    
 
 def inquiry_item(request,slug,Code):
