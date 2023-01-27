@@ -14,7 +14,7 @@
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
-		
+		<link href="{% static 'images/favicon.ico' %}" rel="shortcut icon" type="image/x-icon">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <!-- Font Awesome -->
@@ -72,25 +72,25 @@
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Product Industry</a>
 							<div class="dropdown-menu" aria-labelledby="dropdown04">
-								<a class="dropdown-item" href="/clinical/">Clinical</a>
-								<a class="dropdown-item" href="/cosmetic/">Cosmetic</a>
-								<a class="dropdown-item" href="/dairy/">Dairy</a>
-								<a class="dropdown-item" href="/food/">Food & Beverage</a>
-								<a class="dropdown-item" href="/veterinary/">Veterinary</a>
-								<a class="dropdown-item" href="/Water_Wastewater/">Water & Wastewater</a>
+								<a class="dropdown-item" href="/product_industry/clinical/">Clinical</a>
+								<a class="dropdown-item" href="/product_industry/cosmetic/">Cosmetic</a>
+								<a class="dropdown-item" href="/product_industry/dairy/">Dairy</a>
+								<a class="dropdown-item" href="/product_industry/food/">Food & Beverage</a>
+								<a class="dropdown-item" href="/product_industry/veterinary/">Veterinary</a>
+								<a class="dropdown-item" href="/product_industry/water/">Water & Wastewater</a>
 							</div>
 						</li>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Our Products</a>
 							<div class="dropdown-menu" aria-labelledby="dropdown04">
-								<a class="dropdown-item" href="/agar_plates/">Agar Plates</a>
-								<a class="dropdown-item" href="/bi_agar_plates_90mm/">Bi Agar Plates 90mm</a>
-								<a class="dropdown-item" href="/agar_plates_150mm/">Agar Plates 150mm</a>
-								<a class="dropdown-item" href="/tubed_media/">Tubed Media</a>
-								<a class="dropdown-item" href="/bottled_media/">Bottled Media</a>
-								<a class="dropdown-item" href="/blood_products/">Blood Products</a>
-								<a class="dropdown-item" href="/antibiotic_discs/">Antibiotic Discs</a>
-								<a class="dropdown-item" href="/aTCC-Microbiologic/">ATCC-Microbiologic</a>
+								<a class="dropdown-item" href="/agarplates/">Agar Plates</a>
+								<a class="dropdown-item" href="/biagarplates/">Bi Agar Plates 90mm</a>
+								<a class="dropdown-item" href="/150biagarplates/">Agar Plates 150mm</a>
+								<a class="dropdown-item" href="/tubedmediabroths/">Tubed Media</a>
+								<a class="dropdown-item" href="/bottledmedia/">Bottled Media</a>
+								<a class="dropdown-item" href="/bloodproducts/">Blood Products</a>
+								<a class="dropdown-item" href="/antibioticdiscs/">Antibiotic Discs</a>
+								<a class="dropdown-item" href="/atcc/">ATCC-Microbiologic</a>
 								<a class="dropdown-item" href="/petroleum/">Petroleum</a>
 							</div>
 						</li>
@@ -151,16 +151,16 @@
 				
 				 <br>
 
-					<h5>Categories</h5>
+<!-- 					<h5>Categories</h5>
 					<ul class="list-unstyled components mb-5">
 						<li>
 							<a href="#pageSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Products Industry</a>
 							<ul class="collapse list-unstyled" id="pageSubmenu1">
-								<li><a href="/clinical/"><span class="fa fa-chevron-right mr-2"></span> Clinical</a></li>
-								<li><a href="/cosmetic/"><span class="fa fa-chevron-right mr-2"></span> Cosmetic</a></li>
-								<li><a href="/dairy/"><span class="fa fa-chevron-right mr-2"></span> Dairy</a></li>
-								<li><a href="/food/"><span class="fa fa-chevron-right mr-2"></span> Food & Beverage</a></li>
-								<li><a href="/veterinary/"><span class="fa fa-chevron-right mr-2"></span> Veterinary</a></li>
+								<li><a href="/product_industry/clinical/"><span class="fa fa-chevron-right mr-2"></span> Clinical</a></li>
+								<li><a href="/product_industry/cosmetic/"><span class="fa fa-chevron-right mr-2"></span> Cosmetic</a></li>
+								<li><a href="/product_industry/dairy/"><span class="fa fa-chevron-right mr-2"></span> Dairy</a></li>
+								<li><a href="/product_industry/food/"><span class="fa fa-chevron-right mr-2"></span> Food & Beverage</a></li>
+								<li><a href="/product_industry/veterinary/"><span class="fa fa-chevron-right mr-2"></span> Veterinary</a></li>
 								<li><a href="/Water_Wastewater/"><span class="fa fa-chevron-right mr-2"></span> Water & Wastewater</a></li>
 							</ul>
 						</li>
@@ -180,16 +180,34 @@
 						</li>
 					 
 					</ul>
-
+ -->
 					<div class="mb-5">
-						<h5>Catalog Download</h5>
+						<!-- <h5>Catalog Download</h5> -->
 					<br>
 					<a target="_blank" href="{% static 'catalog.pdf' %}" title="">
-					<img src="{% static 'images/imagess.png' %}" alt="logo" width="100px">
+					<img src="{% static 'images/cata.jpg' %}" alt="logo" width="120px">
 					</a>
 					
 
 					</div>
+					<div class="mb-5">
+						<!-- <h5>Catalog Download</h5> -->
+					<br>
+					<a target="_blank" href="{% static 'iso9001.docx' %}" title="">
+					<img src="{% static 'images/q.jpg' %}" alt="logo" width="100px">
+					</a>
+					
+
+					</div><div class="mb-5">
+						<!-- <h5>Catalog Download</h5> -->
+					<br>
+					<a target="_blank" href="{% static 'images/qc.jpg' %}" title="">
+					<img src="{% static 'images/quality policy.jpg' %}" alt="logo" width="100px">
+					</a>
+					
+
+</div>
+
 				</div>
 			</nav>
 			<div id="content" class="p-4 p-md-5 pt-5">
@@ -241,22 +259,7 @@
       <!-- Grid column -->
       <!-- Grid column -->
 
-      <hr class="clearfix w-100 d-md-none">
-
-      <!-- Grid column -->
-      <div class="col-md-3 mx-auto">
-
-        <h5 style="color: white;" class="font-weight-bold text-uppercase mt-3 mb-4">Contact Us</h5>
-
-					<p><i class="fas fa-home me-3"></i> Abdulaziz Al Khurayji Street, Al Zahra District, Building no: 96, Jeddah, Saudi Arabia</p>
-					<p>
-						<i class="fas fa-envelope me-3"></i>
-						info@spml.com.sa
-					</p>
-					<p><i class="fas fa-phone me-3"></i> 00966122751747 </p>
-					<p><i class="fas fa-print me-3"></i> 00966126900963</p>
-
-</div>
+	
 <hr class="clearfix w-100 d-md-none">
 
       <!-- Grid column -->
@@ -291,8 +294,8 @@
   <!-- Footer Links -->
 
   <!-- Copyright -->
-  <div class="footer-copyright text-center py-3"  style="color: white;">© 2020 Copyright:
-    <a href="#" style="color: white;"><b>Mannan Asif</b></a>
+  <div class="footer-copyright text-center py-3"  style="color: white;">© 2022 Copyright:
+    <a href="#" style="color: white;"><b>Spml</b></a>
   </div>
   <!-- Copyright -->
 

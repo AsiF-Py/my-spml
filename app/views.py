@@ -1,4 +1,4 @@
-from django.shortcuts import render , HttpResponseRedirect , redirect
+from django.shortcuts import render , HttpResponseRedirect , redirect,get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import QCCertificates , product
 from django.db.models import Q
@@ -9,6 +9,7 @@ from django.core.mail import send_mail , BadHeaderError
 from django.template.loader import render_to_string, get_template
 from django.views.generic import ListView , DetailView
 from django.urls import resolve
+from taggit.models import Tag
 
 def home(request):
 	return render(request,'home.html')
@@ -16,6 +17,15 @@ def home(request):
 def product_list(request,slug):
 	pro_list = product.objects.filter(Products_Category=slug)
 	return render(request,'product.html',{'pro_list':pro_list} ) 
+def Indended_Use_product_list(request,tag_slug=None):
+
+	pro_list1=product.objects.all()
+	tag=None
+	if tag_slug:
+		tag=get_object_or_404(Tag,slug=tag_slug)
+		pro_list=pro_list1.filter(Indended_Use__in=[tag])
+	return render(request,'Indended_Use_product_list.html',{'pro_list':pro_list} ) 
+
 
 def product_detail(request,slug,Code):
 	context ={}

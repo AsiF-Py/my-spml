@@ -23,10 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-qaq86!35aoxtbq%q(45!il_e!(4(&c7l8-uj6^!)nhwi8*e6_x'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
-
+#DEBUG = False
+DEBUG =True
+ALLOWED_HOSTS = ['www.spml.com.sa','spml.com.sa',"https://spml.com.sa/"]
 
 # Application definition
 
@@ -39,7 +38,8 @@ INSTALLED_APPS = [
 	'django.contrib.staticfiles',
 	'app',
 	'taggit',
-	"anymail",
+
+	
 ]
 
 MIDDLEWARE = [
@@ -50,15 +50,14 @@ MIDDLEWARE = [
 	'django.contrib.auth.middleware.AuthenticationMiddleware',
 	'django.contrib.messages.middleware.MessageMiddleware',
 	'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+
 ]
 
 ROOT_URLCONF = 'spml.urls'
-BASE_DIR1 = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-TEMPLATE_DIR = os.path.join(BASE_DIR1,'templates')
-STATICFILES_DIRS = [
-	os.path.join(BASE_DIR, "static"),
-	'/var/www/static/',
-]
+#BASE_DIR1 = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+TEMPLATE_DIR = os.path.join(BASE_DIR,'templates')
+
 TEMPLATES = [
 	{
 		'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -81,18 +80,23 @@ WSGI_APPLICATION = 'spml.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+#DATABASES = {
+ #   'default': {
+ #       'ENGINE': 'django.db.backends.postgresql',
+ #       'NAME': 'myspml',
+ #       'USER': 'spmladmin',
+  #      'PASSWORD': 'py08thon925',
+  #      'HOST': '127.0.0.1',
+  #      'PORT': '5432',
+  #  }
+#}
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'myspml',
-        'USER': 'spmladmin',
-        'PASSWORD': 'py08thon925',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME':  str(BASE_DIR / "db.sqlite3"),
     }
 }
-
-
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
@@ -130,14 +134,22 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+	'/var/www/spml/env/lib/python3.10/site-packages/django/contrib/admin/static',
+)
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-MEDIA_ROOT =  os.path.join(BASE_DIR, 'media') 
-MEDIA_URL = '/media/'
+
 
 ANYMAIL = {
 	# (exact settings here depend on your ESP...)
@@ -158,3 +170,14 @@ PASSWORD_HASHERS=[
 	'django.contrib.auth.hashers.PBKDF2PasswordHasher',
 	'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
 ]
+
+
+
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+SECURE_HSTS_SECONDS = 31536000
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+CSRF_TRUSTED_ORIGINS = ['https://spml.com.sa/','www.spml.com.sa','spml.com.sa']

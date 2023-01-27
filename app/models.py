@@ -2,50 +2,41 @@ from django.db import models
 from django.core.exceptions import ValidationError
 from taggit.managers import TaggableManager
 from django.utils.text import slugify 
-Products_Type_CHOICES = [
-	('our products', 'Our Products'),
-	('product-industry', 'Product-Industry'),
-
-]
-
 
 Products_Category_CHOICES = [
-	('Our Products', (
-			('agar_plates', 'Agar Plates'),
-			('bi_agar_plates_90mm', 'Bi Agar Plates 90mm'),
-			('agar_plates_150mm', 'Agar Plates 150mm'),
-			('tubed_media', 'Tubed Media'),
-			('bottled_media', 'Bottled Media'),
-			('blood_products', 'Blood Products'),
-			('antibiotic_discs', 'Antibiotic Discs'),
-			('aTCC-Microbiologic', 'ATCC-Microbiologic'),
+
+			('agarplates', 'Agar Plates'),
+			('biagarplates', 'Bi Agar Plates 90mm'),
+			('150biagarplates', 'Agar Plates 150mm'),
+			('tubedmediabroths', 'Tubed Media'),
+			('bottledmedia', 'Bottled Media'),
+			('bloodproducts', 'Blood Products'),
+			('antibioticdiscs', 'Antibiotic Discs'),
+			('atcc', 'ATCC-Microbiologic'),
 			('petroleum', 'Petroleum'),
-		)
-	),
-	('Product-Industry', (
-			('clinical', 'Clinical'),
-			('cosmetic', 'Cosmetic'),
-			('dairy', 'Dairy'),
-			('food', 'Food & Beverage'),
-			('veterinary', 'Veterinary'),
-			('Water_Wastewater', 'Water & Wastewater'),
-		)
-	),
-	('unknown', 'Unknown'),
+
 ]
 
 	
 
 class product(models.Model):
-	Products_Name = models.CharField(max_length=100)
-	Code = models.IntegerField(unique=True)
+	Code = models.CharField(unique=True,max_length=100,blank=True,null=True)
+	Products_Name = models.CharField(max_length=100,blank=True,null=True)
+	
+
 	Product_Description = models.TextField(default='')
-	Products_Attachment = models.FileField(upload_to='file', max_length=100,default='')
-	Products_Image = models.ImageField(upload_to='images', max_length=100,default='')
-	Products_Type  = models.CharField(choices=Products_Type_CHOICES,max_length=100,default='')
-	Products_Category = models.CharField(choices=Products_Category_CHOICES,max_length=100,default='')
-	slug=models.SlugField(default='',help_text = "Products Category and slug are must be same.")
-	Indended_Use = TaggableManager(help_text = "Tag")
+
+	Products_Attachment = models.FileField(max_length=100,default='',blank=True,null=True)
+
+	Products_Image = models.ImageField(max_length=100,default='',blank=True,null=True)
+	
+	Products_Category = models.CharField(choices=Products_Category_CHOICES,max_length=100,default='',blank=True,null=True)
+
+
+
+	slug=models.SlugField(default='hello',help_text = "Products Category and slug are must be same.",blank=True,null=True)
+
+	Indended_Use = TaggableManager(help_text = "Tag",blank=True)
 	
 	def save(self, *args, **kwargs):
 		self.slug = slugify(self.Products_Category)

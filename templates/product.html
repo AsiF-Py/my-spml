@@ -2,42 +2,42 @@
 {% block head_title %}{% endblock %}
 {% block content %}
 
-{% if request.path == '/agar_plates/' %}
+{% if request.path == '/agarplates/' %}
          <h2 class="mb-4">Agar Plates</h2>
          <title> Spml | Agar Plates </title>
 
 
-{% elif request.path == '/bi_agar_plates_90mm/' %}
+{% elif request.path == '/biagarplates/' %}
          <h2 class="mb-4">Bi Agar Plates 90mm</h2>
          <title> Spml | Bi Agar Plates 90mm</title>
 
      
-{% elif request.path == '/agar_plates_150mm/' %}
+{% elif request.path == '/150biagarplates/' %}
          <h2 class="mb-4">Agar Plates 150mm</h2>
          <title> Spml | Agar Plates 150mm</title>
 
 
-{% elif request.path == '/tubed_media/' %}
+{% elif request.path == '/tubedmediabroths/' %}
          <h2 class="mb-4">Tubed Media</h2>
          <title> Spml | Tubed Media</title>
 
 
-{% elif request.path == '/bottled_media/' %}
+{% elif request.path == '/bottledmedia/' %}
          <h2 class="mb-4">Bottled Media</h2>
          <title> Spml | Bottled Media</title>
 
 
-{% elif request.path == '/blood_products/' %}
+{% elif request.path == '/bloodproducts/' %}
          <h2 class="mb-4">Blood Products</h2>
          <title> Spml | Blood Products</title>
 
 
-{% elif request.path == '/antibiotic_discs/' %}
+{% elif request.path == '/antibioticdiscs/' %}
          <h2 class="mb-4">Antibiotic Discs</h2>
          <title> Spml | Antibiotic Discs</title>
          
 
-{% elif request.path == '/aTCC-Microbiologic/' %}
+{% elif request.path == '/atcc/' %}
          <h2 class="mb-4">ATCC-Microbiologic</h2>
          <title> Spml | ATCC-Microbiologic</title>
 
@@ -99,7 +99,7 @@
                         <p class="mb-3">{{list.Product_Description|truncatewords:20}}</p>
                         <ul class="list-inline list-inline-dotted mb-0">
                             <li class="list-inline-item"><a href="/{{list.slug}}/{{list.Code}}/inquiry_item/" data-abc="true">Require this Item</a></li>
-                            <li class="list-inline-item"><a href="{{list.Products_Attachment.url}}" target="_blank" data-abc="true">Instruction for use</a></li>
+                            <li class="list-inline-item"><a href="#" data-abc="true">Instruction for use</a></li>
                         </ul>
                     </div>
                     <div class="mt-3 mt-lg-0 ml-lg-3 text-center">
